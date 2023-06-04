@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1{
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+
+h2{
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+}
+
+h4{
+  font-size: 20px;
+  color: #222;
+}
+
+h6{
+  font-weight: 700;
+  font-size: 12px;
+}
+
+p{
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+
+.section-p1{
+  padding: 40px 80px;
+}
+
+.section-m1{
+  margin: 40px 0;
+}
+
+button.normal{
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+body{
+  width: 100%;
+}
+
+.pick-cat{
+  padding-left: 525px;
+}
+
+input{
+   border-radius: 8px;
+   background: #E3E6F3;
+   font-weight: 500;
+   font-size: 16px;
+   border: none;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+   height: 44px !important;
+   width: 9%;
+}
+
+.greetings{
+  padding-top: 25px;
+  padding-left: 80px;
+}
+
+.greetings h4{
+  font-size: 40px;
+}
+
+.greetings span{
+  font-size: 40px;
+  color: #088178;
+}
+
+.greetings p{
+  margin-top: 2px;
+  font-size: 18px;
+}
+select{
+   border-radius: 8px;
+   background: #fff;
+   font-weight: 400;
+   font-size: 16px;
+   border: none;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+   height: 44px !important;
+   width: 30%;
+}
+
+/*Recipe*/
+#recipe{
+  text-align: center;
+}
+
+#recipe .pro-container{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  flex-wrap: wrap;
+}
+
+#recipe .pro{
+  width: 23%;
+  min-width: 250px;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;
+  border-radius: 25PX;
+  cursor: pointer;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+  margin: 15px 0;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+#recipe .pro:hover{
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+}
+
+#recipe .pro img{
+  width: 100%;
+  border-radius: 15px;
+}
+
+#recipe .pro .des{
+  text-align: start;
+  padding: 10px 0;
+}
+
+#recipe .pro .des .span{
+  color: #606063;
+  font-size: 12px;
+}
+
+#recipe .pro .des h5{
+  padding-top: 7px;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+#recipe .pro .des i{
+  font-size: 12px;
+  color: rgb(243, 181, 25);
+}
+
+#recipe .pro .bookmark{
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  font-weight: 500;
+  color: #088178;
+  border: 1px solid #cce7d0;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+
+.pick-cat{
+  padding-left: 647px;
+}
+
+
