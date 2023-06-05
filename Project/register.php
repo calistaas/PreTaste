@@ -9,18 +9,21 @@ if(isset($_POST['register'])){
     // enkripsi password
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $role  = "user";
 
 
     // menyiapkan query
-    $sql = "INSERT INTO user (username, email, password) 
-            VALUES (:username, :email, :password)";
+    $sql = "INSERT INTO user (username, email, password, role) 
+            VALUES (:username, :email, :password, :role)";
     $stmt = $db->prepare($sql);
 
     // bind parameter ke query
     $params = array(
         ":username" => $username,
         ":password" => $password,
-        ":email" => $email
+        ":email" => $email,
+        ":role" => $role
+
     );
 
     // eksekusi query untuk menyimpan ke database
@@ -71,7 +74,7 @@ if(isset($_POST['register'])){
                     <i class="fas fa-lock"></i>
                 </div>
 
-                <button class="submit" name="login">Login</button>
+                <button class="submit" name="register">Register</button>
             </form>
         </div>
     </section>

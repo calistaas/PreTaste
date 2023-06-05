@@ -26,25 +26,14 @@
 </head>
 
 <body>
-	<!-- header section start-->
-<section id="header">
-	<a href="#"><img src="img/" class="logo"></a>
-	<nav>
-		<ul id="navbar">
-			<li><a href="#header">Home</a></li>
-			<li><a href="#feature">Categories</a></li>
-			<li><a href="#"><i class="fa-solid fa-user"></i></a></li>
-	</nav>
-	</div>
-</section>
-
+	<?php include "header.php";?>
 <section id="prodetails" class="section-p1">
 	<div class="single-pro-img">
 		<img src="img/f1.jpg" width="100%" id="MainImg">
 	</div>
 
 	<div class="single-pro-details">
-		<h6>Categories/Breakfast</h6>
+		<h6>Food Detail</h6>
 		<h4><?php echo $result['food_name']; ?></h4>
 		<i class="far fa-clock"></i>
 		<span><?php echo $result['food_time'] . " " .$result['time_unit'];; ?></span>
@@ -141,7 +130,7 @@
     }
 	 ?>
 <?php 	
-    $stm = $db->prepare("SELECT user.email, review.comment, review.comment_time FROM user JOIN review ON user.id_user = review.id_user WHERE  review.id_food = '" . $_SESSION['id_food'] ."'");
+		$stm = $db->prepare("SELECT user.email, review.comment, review.comment_time FROM user JOIN review ON user.id_user = review.id_user WHERE  review.id_food = '" . $_SESSION['id_food'] ."ORDER BY review.comment_time DESC'" );
 		$stm->execute();
 		$count = $stm->rowCount();		
  ?>

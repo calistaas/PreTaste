@@ -4,7 +4,7 @@
  ?>
 
 <!DOCTYPE html>
-<html lang="en" title="Coding design">
+<html lang="en" >
 
 <head>
     <meta charset="UTF-8">
@@ -18,27 +18,23 @@
 <body>
     <main class="table">
         <section class="table__header">
-            <h1>User Data</h1>
-                <a href="add_user.php"><button style="background-color: #2D83D4;">Add Data</button></a>
-
+            <h1>Category Data</h1>
+                <a href="add_category.php"><button style="background-color: #2D83D4;">Add Data</button></a>
+      
         </section>
         <section class="table__body">
         	<?php  
-                    $role = "user";
-					$sth = $db->prepare("SELECT *FROM user WHERE role ='" . $role ."'");
+					$sth = $db->prepare("SELECT *FROM categories");
 					$sth->execute();
 		?>
             <table>
                 <thead>
                     <tr>
                         <th> No.</th>
-                        <th> User</th>
-                        <th> Email</th>
+                        <th> Category</th>
+                        <th> Description</th>
                         <th> Edit</th>
-                        <th>Delete</th>
-               
-
-                        
+                        <th>Delete</th>                        
                     </tr>
                 </thead>
                 <tbody>
@@ -48,19 +44,19 @@
                     	while($row = $sth->fetch(PDO::FETCH_ASSOC)){
                     	 ?>
                         <td> <?php echo $num; ?></td>
-                        <td> <img src="#" alt=""><?php echo $row['username']; ?></td>
-                        <td> <?php echo $row['email']; ?></td>    
+                        <td> <?php echo $row['cat_name']; ?></td>
+                        <td> <?php echo $row['cat_desc']; ?></td>    
                         <td>
-                            <form method="GET" action="edit_user.php">
-                               <input type="hidden" name="id_user" value="<?=$row["id_user"]?>">
+                            <form method="GET" action="edit_category.php">
+                               <input type="hidden" name="id_cat" value="<?=$row["id_cat"]?>">
                                <button type="submit" name="edit" style="background-color: #2DD46E;">Edit</button>
                             </form>
                      
                      </td>
                      <td>
                            <form method="POST" action="">
-                                <input type="hidden" name="id_user" value="<?=$row["id_user"]?>">
-                                <button type="submit" name="delete" style="background-color: #EA3C33;" onclick="return confirm('Are you sure to delete?')">Delete</button>
+                                <input type="hidden" name="id_cat" value="<?=$row["id_cat"]?>">
+                                <button type="submit" name="delete" style="background-color: #EA3C33;">Delete</button>
                            </form>
                         </td>
                         
@@ -77,8 +73,8 @@
 
     <?php 
     if (isset($_POST['delete'])) {
-     $user_id = $_POST['id_user'];
-     $sth = $db->prepare("DELETE FROM user where id_user = '$user_id'");
+     $cat_id = $_POST['id_cat'];
+     $sth = $db->prepare("DELETE FROM categories where id_cat = '$cat_id'");
      $sth->execute();
       echo "<script> alert('Data Successfully Deleted')</script>";
  }

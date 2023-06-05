@@ -11,17 +11,17 @@
 </head>
 <body>
 		<nav>
-			<img src="#" class="logo">
+		
 			<ul>
-				<li><a href="#">Home</a></li>
+				<li><a href="home.php">Home</a></li>
 				<li><a href="#">Like</a></li>
 
 			</ul>
-			<img src="assets/img/user.png" class="user-pic"onclick="toggleMenu()">
+				<?php echo '<img  style="border-radius: 50%;width: 60px;margin-right: 15px;"" src="data:image;base64,' . base64_encode($_SESSION["user"]['user_img']).'" onclick = "toggleMenu()">'; ?>		
 			<div class="sub-menu-wrap" id="subMenu">
 				<div class="sub-menu">
 					<div class="user-info">
-						<img src="assets/img/user.png" > 
+						<?php echo '<img  style="border-radius: 50%;width: 60px;margin-right: 15px;"" src="data:image;base64,' . base64_encode($_SESSION["user"]['user_img']).'" onclick = "toggleMenu()">'; ?>	
 						<h2><?php echo  $_SESSION["user"]["username"] ?></h2>
 					</div>
 					<hr>

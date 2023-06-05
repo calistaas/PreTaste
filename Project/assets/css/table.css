@@ -10,7 +10,6 @@
 
 body {
     min-height: 100vh;
-    background: url(images/html_table.jpg) center / cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,10 +19,16 @@ main.table {
     width: 82vw;
     height: 90vh;
     background-color: #fff5;
-
- 
-
     overflow: hidden;
+}
+
+button{
+    border-radius: 8px;
+    height: 20px;
+    width: 67px;
+    border: none;
+    color: white;
+    cursor: pointer;
 }
 
 .table__header {
@@ -71,11 +76,10 @@ main.table {
 }
 
 .table__body {
-    width: 95%;
+    width: 100%;
     max-height: calc(89% - 1.6rem);
     background-color: #fffb;
 
-    margin: .8rem auto;
     border-radius: .6rem;
 
     overflow: auto;
@@ -106,14 +110,14 @@ td img {
     height: 36px;
     margin-right: .5rem;
     border-radius: 50%;
-
     vertical-align: middle;
 }
 
 table, th, td {
-    border-collapse: collapse;
-    padding: 1rem;
+   border-collapse: collapse;
+   padding: 1rem;
     text-align: left;
+
 }
 
 thead th {
@@ -169,29 +173,11 @@ tbody tr.hide td img {
     height:32px;
     width:32px;
 } 
-
-.status {
-    padding: .4rem 0;
-    border-radius: 2rem;
-    text-align: center;
+.class-input{
+    display: inline-block;
+    position: relative;
 }
 
-.status.delivered {
-    background-color: #86e49d;
-    color: #006b21;
-}
 
-.status.cancelled {
-    background-color: #d893a3;
-    color: #b30021;
-}
-
-.status.pending {
-    background-color: #ebc474;
-}
-
-.status.shipped {
-    background-color: #6fcaea;
-}
 
 

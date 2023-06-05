@@ -1,19 +1,38 @@
 <?php
     require_once("db.php");
-    /*require_once("auth.php"); */
+    require_once("auth.php"); 
  ?>
 
-<?php 
-    if (isset($_GET['user_id'])) {
-     $user_id = $_GET['user_id'];
-     $sth = $db->prepare("SELECT *FROM user where id_user = $user_id");
-     $sth->execute();
-     $result = $sth->fetch(PDO::FETCH_ASSOC);   
-     } 
 
+ <?php 
+    if (isset($_GET['edit'])) {
+     $user_id = $_GET['id_user'];
+     $sth = $db->prepare("SELECT *FROM user where id_user = $user_id");
+ ?>
+
+  <?php 
+    if(isset($_POST['save'])){
+        $id_user =$user_id;
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+
+    
+        $query = "UPDATE user SET username=:username, email=:email WHERE id_user=:id_user LIMIT 1";
+        $statement = $db->prepare($query);
+
+        $data = [
+            ':username' => $username,
+            ':email' => $email,
+            ':id_user' => $id_user
+        ];
+        $query_execute = $statement->execute($data);
+        echo "<script> alert('Data Successfully Updated'); window.location.href='retrieve_user.php';  </script>";
+        
+    }
  ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,7 +44,11 @@
 
 </head>
 <body>
-
+<?php 
+    $sth->execute();
+     $result = $sth->fetch(PDO::FETCH_ASSOC);   
+     }
+ ?>
 <div class="container">
 
     <form action="" method="POST">
@@ -65,31 +88,12 @@
     
         </div>
         <input type="submit" name="save" class="submit-btn">
+        <input type="submit" name="cancel" value="cancel" class="submit-btn" style="background-color: grey;">
     </form>
-
-<?php 
-    if(isset($_POST['save'])){
-        $id_user =$user_id;
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-
-    
-        $query = "UPDATE user SET username=:username, email=:email WHERE id_user=:id_user LIMIT 1";
-        $statement = $db->prepare($query);
-
-        $data = [
-            ':username' => $username,
-            ':email' => $email,
-            ':id_user' => $id_user
-        ];
-        $query_execute = $statement->execute($data);
-    
-    }
- ?>
-  
-
-
-</div>    
+</div> 
+<?php if (isset($_POST['cancel'])){
+    header("Location: retrieve_user.php");}
+?>   
     
 </body>
 </html>

@@ -7,12 +7,11 @@ if(isset($_POST['login'])){
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-    $sql = "SELECT * FROM user WHERE email=:email or password=:password";
+    $sql = "SELECT * FROM user WHERE email=:email";
     $stmt = $db->prepare($sql);
     
     // bind parameter ke query
     $params = array(
-        ":password" => $password,
         ":email" => $email
     );
 
@@ -27,8 +26,14 @@ if(isset($_POST['login'])){
             // buat Session
             session_start();
             $_SESSION["user"] = $user;
-            // login sukses, alihkan ke halaman timeline
+            if ($user["role"]=="user") {
+               // login sukses, alihkan ke halaman timeline
             header("Location: home.php");
+            }
+            else{
+                header("Location: retrieve_user.php");
+            }
+            
         }
     }
 }
@@ -42,7 +47,6 @@ if(isset($_POST['login'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/acc.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <title>PreTaste: Find Your Own Taste</title>
 </head>
 <body>

@@ -57,8 +57,6 @@
         $id_user =$user_id;
            $username = $_POST['username'];
         $email = $_POST['email'];
-
-    
         $query = "UPDATE user SET username=:username, email=:email WHERE id_user=:id_user LIMIT 1";
         $statement = $db->prepare($query);
 

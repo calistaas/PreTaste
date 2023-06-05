@@ -29,7 +29,7 @@ include "header.php";
  <section class="pick-cat">
  	<form method="GET" action="cat.php">
  		<select name="cat"> 
- 			<option value="" disabled selected>Select your desire food</option>
+ 			<option value="" disabled="disabled" selected>Select your desire food</option>
  				<?php 
 					$stmt = $db->prepare('SELECT * FROM categories');
 					$stmt->execute();

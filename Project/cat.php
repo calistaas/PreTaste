@@ -23,7 +23,7 @@
 </head>
 
 <body>
-	
+	<?php include "header.php";?>
    <div class="category">
    	<h2><?php echo $result['cat_name'];?></h2>
    	<p><?php  echo $result['cat_desc'];?></p>

@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #303433;
 }
 
@@ -48,7 +50,7 @@ section.side {
 .separator {
     width: 150px;
     height: 4px;
-    background-color: #843bc7;
+    background-color: #088178;
     margin: 24px;
 }
 
@@ -98,7 +100,7 @@ input ~ i {
 }
 
 input:focus ~ i {
-    color: #843bc7;
+    color: #088178;
 }
 
 button.submit {
@@ -108,7 +110,7 @@ button.submit {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    background-image: linear-gradient(to right, #8b33c5, #15a0e1);
+    background-color:#088178 ;
     cursor: pointer;
     transition: opacity 0.4s;
 }
